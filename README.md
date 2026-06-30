@@ -1,17 +1,56 @@
-# 🏫 Hệ thống Giám sát Chất lượng Không khí trong Phòng học - Air Quality Monitoring System
+# 🏫 Air Quality Monitoring System
 
-> Hệ thống giám sát chất lượng không khí trong phòng học/lớp học và điều khiển thiết bị bằng Fuzzy Logic Control
+> Hệ thống giám sát chất lượng không khí trong phòng học/lớp học và điều khiển thiết bị bằng **Fuzzy Logic Control** — Full-stack web app (React + FastAPI).
+
+[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
+[![Node 16+](https://img.shields.io/badge/node-16%2B-green.svg)](https://nodejs.org/)
+[![React 18](https://img.shields.io/badge/react-18-61dafb.svg)](https://react.dev)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104-009688.svg)](https://fastapi.tiangolo.com)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Fuzzy Logic](https://img.shields.io/badge/AI-Fuzzy%20Logic-orange.svg)](#-fuzzy-logic-control)
+
+---
+
+## 📸 Demo
+
+> Thêm screenshot hoặc GIF vào `docs/screenshots/` rồi cập nhật link bên dưới.
+
+```markdown
+![Dashboard](docs/screenshots/dashboard.png)
+![Fuzzy Control](docs/screenshots/fuzzy.png)
+```
+
+---
+
+## 🏗️ Kiến trúc
+
+```mermaid
+flowchart LR
+    CSV[(data/dataset.csv)] --> SVC[DataService<br/>Pandas]
+    SVC --> API[FastAPI<br/>REST]
+    API -->|JSON| FE[React Frontend<br/>Vite + Recharts]
+    API --> FZ[Fuzzy Controller<br/>scikit-fuzzy]
+    FZ --> API
+    FE -->|axios / 5s poll| API
+    SVC --> ALERT[Alert Checker<br/>3 mức]
+    ALERT --> API
+```
+
+**Luồng dữ liệu**: CSV → Pandas → FastAPI → React Dashboard (5s polling) + Fuzzy Control engine → API → UI.
+
+---
 
 ## 📋 Mục lục
 
-- [Tổng quan](#tổng-quan)
-- [Tính năng chính](#tính-năng-chính)
-- [Yêu cầu hệ thống](#yêu-cầu-hệ-thống)
-- [Cài đặt](#cài-đặt)
-- [Chạy ứng dụng](#chạy-ứng-dụng)
-- [Cấu trúc dự án](#cấu-trúc-dự-án)
-- [API Endpoints](#api-endpoints)
-- [Fuzzy Logic Control](#fuzzy-logic-control)
+- [Tổng quan](#-tổng-quan)
+- [Tính năng chính](#-tính-năng-chính)
+- [Yêu cầu hệ thống](#-yêu-cầu-hệ-thống)
+- [Cài đặt](#-cài-đặt)
+- [Chạy ứng dụng](#-chạy-ứng-dụng)
+- [Cấu trúc dự án](#-cấu-trúc-dự-án)
+- [API Endpoints](#-api-endpoints)
+- [Fuzzy Logic Control](#-fuzzy-logic-control)
+- [Tài liệu tham khảo](#-tài-liệu-tham-khảo)
 
 ## 🎯 Tổng quan
 
