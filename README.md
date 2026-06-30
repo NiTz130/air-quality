@@ -13,7 +13,7 @@
 
 ## 📸 Demo
 
-> Screenshots sẽ được thêm sau. Khi có, đặt file vào `docs/screenshots/` rồi tham chiếu ở đây.
+> Screenshots sẽ được thêm sau.
 
 ---
 
