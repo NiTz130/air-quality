@@ -13,12 +13,7 @@
 
 ## 📸 Demo
 
-> Thêm screenshot hoặc GIF vào `docs/screenshots/` rồi cập nhật link bên dưới.
-
-```markdown
-![Dashboard](docs/screenshots/dashboard.png)
-![Fuzzy Control](docs/screenshots/fuzzy.png)
-```
+> Screenshots sẽ được thêm sau. Khi có, đặt file vào `docs/screenshots/` rồi tham chiếu ở đây.
 
 ---
 
